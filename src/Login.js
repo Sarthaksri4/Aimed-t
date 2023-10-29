@@ -1,109 +1,99 @@
 import React from 'react';
 import styled from 'styled-components';
-import Photo from './ph.png';
+import Logo from './ph.png';
 
-
+const Login = () => {
+  return (
+    <Container>
+      <Image src={Logo} alt="Login Image" />
+      <LoginForm>
+        <h2>Login</h2>
+        <Input type="text" placeholder="Username" />
+        <Input type="password" placeholder="Password" />
+        <RememberMe>
+          <input type="checkbox" /> Remember me
+        </RememberMe>
+        <AgreeToTerms>
+          <input type="checkbox" /> Agree to Terms and Conditions
+        </AgreeToTerms>
+        <ChangePassword>Forgot Password?</ChangePassword>
+        <SubmitButton>Log In</SubmitButton>
+        <SignupLink>Don't have an account? Sign up</SignupLink>
+      </LoginForm>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f7f7f7;
+  height: 100vh;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-const LoginContainer = styled.div`
-  display: flex;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  max-width: 500px;
+const Image = styled.img`
+  max-width: 60%;
+  height: 60%;
+  margin-right: 180px;
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+`;
+
+const LoginForm = styled.form`
+  width:40%;
+  height:70%;
+  border: 1px solid #ccc;
   padding: 20px;
-`;
-
-const Logo = styled.img`
-  max-width: 100%;
-`;
-
-const FormContainer = styled.div`
-  flex: 1;
-  padding: 20px;
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  margin-bottom: 20px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
+  border-radius: 12px;
+  background: #FFF;
+box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.16);
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const Input = styled.input`
+  width: 100%;
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 `;
 
-const RememberContainer = styled.div`
+const RememberMe = styled.label`
   display: flex;
   align-items: center;
   margin: 10px 0;
 `;
 
-const Checkbox = styled.input`
-  margin-right: 10px;
-`;
-
-const Label = styled.label`
-  font-size: 14px;
-`;
-
-const AgreeContainer = styled.div`
+const AgreeToTerms = styled.label`
+  display: flex;
+  align-items: center;
   margin: 10px 0;
 `;
 
-const PasswordLink = styled.a`
-  text-decoration: none;
-  color: #007BFF;
-  margin-right: 10px;
-`;
-
-const LoginButton = styled.button`
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px;
+const ChangePassword = styled.span`
+  color: #0077FF;
+  text-decoration: underline;
   cursor: pointer;
 `;
 
-function Login() {
-  return (
-    <Container>
-      <LoginContainer>
-      <Logo src={Photo} alt="Logo" />
-        <FormContainer>
-          <Title>Login</Title>
-          <Form>
-            <Input type="text" placeholder="Username" />
-            <Input type="password" placeholder="Password" />
-            <RememberContainer>
-              <Checkbox type="checkbox" id="remember" />
-              <Label htmlFor="remember">Remember me</Label>
-            </RememberContainer>
-            <AgreeContainer>
-              <PasswordLink href="#forgot">Change password</PasswordLink>
-              <Label>Agree to terms and conditions</Label>
-            </AgreeContainer>
-            <LoginButton type="submit">Login</LoginButton>
-          </Form>
-        </FormContainer>
-      </LoginContainer>
-    </Container>
-  );
-}
+const SubmitButton = styled.button`
+  background-color: #0077FF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const SignupLink = styled.div`
+  margin: 20px 0;
+`;
 
 export default Login;
